@@ -1,0 +1,41 @@
+{
+  "settings": {
+    "format_version": 1,
+    "model": "p4_q6",
+    "p": 4,
+    "q": 6,
+    "alpha": 1.0,
+    "beta": 0.5,
+    "mass": 1.0,
+    "rmax_branch": 50.0,
+    "n_mesh_base": 700,
+    "n_eval": 5000,
+    "anchor_factors": [
+      0.2,
+      0.35,
+      0.55,
+      0.8,
+      1.0,
+      1.2,
+      1.45,
+      1.65
+    ],
+    "omega_seed_fractions": [
+      0.55,
+      0.7,
+      0.82,
+      0.92
+    ],
+    "a_min_factor": 0.06,
+    "a_max_factor": 1.9,
+    "a_step_initial": 0.035,
+    "a_step_min": 0.003,
+    "a_step_max": 0.1,
+    "tail_accept": 0.0002,
+    "residual_accept": 0.002
+  },
+  "completed_anchors": 32,
+  "total_anchors": 32,
+  "current_anchor_index": null,
+  "current_seed_index": null
+}

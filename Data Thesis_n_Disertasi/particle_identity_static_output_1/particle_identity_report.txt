@@ -1,0 +1,46 @@
+PARTICLE IDENTITY STATIC ANALYSIS
+============================================================
+
+Selected NPZ index : 6
+omega              : 0.886013220551
+A_center           : 1.035
+Rest energy M=E    : 200.86576235
+Noether charge Q   : 207.403897768
+E/Q                : 0.968476313662
+R_energy_rms       : 3.50322313544
+R_charge_rms       : 3.2835791665
+R50                : 3.03602176263
+R90                : 5.01620616961
+R99                : 7.49748669171
+
+STATIC BALANCE
+------------------------------------------------------------
+Virial relative    : 9.210959e-09
+Laue relative      : 7.842878e-10
+ODE residual max   : 5.560191e-06
+Tail ratio         : 1.411902e-11
+
+GATES
+------------------------------------------------------------
+[PASS] Ground state: 0 | required: node_count = 0
+[PASS] Localized tail: 1.4119021190639819e-11 | required: tail_ratio < 1.0e-06
+[PASS] Finite energy: 200.8657623497724 | required: finite and positive
+[PASS] Finite charge: 207.40389776833905 | required: finite and positive
+[PASS] Energetic stability: 0.9684763136618124 | required: E/Q < m = 1
+[PASS] ODE residual: 5.560190536324505e-06 | required: max residual < 1.0e-04
+[PASS] Virial identity: 9.2109594742132e-09 | required: relative error < 1.0e-03
+[PASS] Von Laue condition: 7.842878200718159e-10 | required: relative error < 1.0e-03
+[PASS] NPZ energy consistency: 1.414960374427206e-16 | required: relative error < 1.0e-06
+[PASS] NPZ charge consistency: 1.3703556074027978e-16 | required: relative error < 1.0e-06
+[PASS] RMAX Q convergence (low_omega): 4.7409362940364086e-07 | required: relative change < 1.0e-03
+[PASS] RMAX E convergence (low_omega): 4.3591121496118043e-07 | required: relative change < 1.0e-03
+[PASS] RMAX Q convergence (mid_omega): 4.211480470940526e-07 | required: relative change < 1.0e-03
+[PASS] RMAX E convergence (mid_omega): 4.342557280996227e-07 | required: relative change < 1.0e-03
+[FAIL] RMAX Q convergence (high_omega): 0.0013240305333643329 | required: relative change < 1.0e-03
+[FAIL] RMAX E convergence (high_omega): 0.001331024985350874 | required: relative change < 1.0e-03
+
+PASS COUNT: 14/16
+
+PRELIMINARY CONCLUSION: SOME STATIC PARTICLE CRITERIA FAILED
+
+Interpretation limit: passing this test supports an effective classical-relativistic particle interpretation. It does not identify the solution as an electron, proton, or another Standard Model particle, and it does not replace a time-evolution stability test.

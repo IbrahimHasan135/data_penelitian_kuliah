@@ -1,0 +1,49 @@
+EXTENDED PARTICLE IDENTITY ANALYSIS
+========================================================================
+index=6
+omega=0.8860132205511224
+E=200.8657623497724
+Q=207.40389776833905
+E/Q=0.9684763136618124
+reference_RMAX_region=low_omega
+
+PRIMARY GATES
+------------------------------------------------------------------------
+[PASS] static | Ground state | value=0 | required=node_count = 0
+[PASS] static | Localized tail | value=1.4119021190639819e-11 | required=< 1e-06
+[PASS] static | Finite energy | value=200.8657623497724 | required=positive finite
+[PASS] static | Finite charge | value=207.40389776833905 | required=positive finite
+[PASS] static | Energetic stability | value=0.9684763136618124 | required=E/Q < 1
+[PASS] static | ODE residual | value=5.560190536324505e-06 | required=< 0.0001
+[PASS] static | Virial identity | value=9.2109594742132e-09 | required=< 0.001
+[PASS] static | Von Laue | value=7.842878200718159e-10 | required=< 0.001
+[PASS] static | NPZ E consistency | value=1.414960374427206e-16 | required=< 1e-06
+[PASS] static | NPZ Q consistency | value=1.3703556074027978e-16 | required=< 1e-06
+[PASS] RMAX | Q convergence low_omega (last interval) | value=3.3909738050563186e-07 | required=< 0.001
+[PASS] RMAX | E convergence low_omega (last interval) | value=3.1200244815174275e-07 | required=< 0.001
+[PASS] translation | Energy unchanged after spatial shift | value=4.976029089844712e-07 | required=< 0.003
+[PASS] translation | Charge unchanged after spatial shift | value=5.757616840724452e-07 | required=< 0.003
+[PASS] boost | Numerical E²-P² invariant | value=4.0591103759446196e-05 | required=< 0.005
+[PASS] boost | Numerical boost charge invariant | value=3.6622966961245002e-06 | required=< 0.005
+[PASS] dynamics | Energy drift plus_1pct | value=3.2073815853387e-05 | required=< 0.01
+[PASS] dynamics | Charge drift plus_1pct | value=1.8592840980665915e-05 | required=< 0.01
+[PASS] dynamics | Radius bounded plus_1pct | value=1..1.0035 | required=0.75<R/R0<1.35
+[PASS] dynamics | Core bounded plus_1pct | value=0.98817..1 | required=0.35<A/A0<1.75
+[PASS] dynamics | Energy drift minus_1pct | value=3.1257202718948306e-05 | required=< 0.01
+[PASS] dynamics | Charge drift minus_1pct | value=1.8468005169587455e-05 | required=< 0.01
+[PASS] dynamics | Radius bounded minus_1pct | value=0.99672..1 | required=0.75<R/R0<1.35
+[PASS] dynamics | Core bounded minus_1pct | value=1..1.012 | required=0.35<A/A0<1.75
+[PASS] dynamics | Energy drift noise_1pct | value=0.00044887144951508135 | required=< 0.01
+[PASS] dynamics | Charge drift noise_1pct | value=0.00029442200325209436 | required=< 0.01
+[PASS] dynamics | Radius bounded noise_1pct | value=0.99987..1.0065 | required=0.75<R/R0<1.35
+[PASS] dynamics | Core bounded noise_1pct | value=0.93956..1.07 | required=0.35<A/A0<1.75
+[PASS] dynamics | Energy drift plus_5pct | value=0.0008549059636747952 | required=< 0.01
+[PASS] dynamics | Charge drift plus_5pct | value=0.0004853238441346923 | required=< 0.01
+[PASS] dynamics | Radius bounded plus_5pct | value=1..1.0289 | required=0.75<R/R0<1.35
+[PASS] dynamics | Core bounded plus_5pct | value=0.94155..1 | required=0.35<A/A0<1.75
+
+PRIMARY PASS COUNT: 32/32
+
+CONCLUSION: ALL PRIMARY TESTS PASSED
+
+Limits: radial dynamics does not test non-spherical modes or collisions.

@@ -1,0 +1,37 @@
+category,criterion,value,required,gate_type,status
+static,Ground state,0,node_count = 0,primary,PASS
+static,Localized tail,1.4119021190639819e-11,< 1e-06,primary,PASS
+static,Finite energy,200.8657623497724,positive finite,primary,PASS
+static,Finite charge,207.40389776833905,positive finite,primary,PASS
+static,Energetic stability,0.9684763136618124,E/Q < 1,primary,PASS
+static,ODE residual,5.560190536324505e-06,< 0.0001,primary,PASS
+static,Virial identity,9.2109594742132e-09,< 0.001,primary,PASS
+static,Von Laue,7.842878200718159e-10,< 0.001,primary,PASS
+static,NPZ E consistency,1.414960374427206e-16,< 1e-06,primary,PASS
+static,NPZ Q consistency,1.3703556074027978e-16,< 1e-06,primary,PASS
+RMAX,Q convergence low_omega (last interval),3.3909738050563186e-07,< 0.001,primary,PASS
+RMAX,E convergence low_omega (last interval),3.1200244815174275e-07,< 0.001,primary,PASS
+RMAX,Q convergence mid_omega (last interval),1.3495364585701733e-08,< 0.001,diagnostic,PASS
+RMAX,E convergence mid_omega (last interval),1.3836805915591368e-08,< 0.001,diagnostic,PASS
+RMAX,Q convergence high_omega (last interval),8.421567504248812e-06,< 0.001,diagnostic,PASS
+RMAX,E convergence high_omega (last interval),8.452204022306792e-06,< 0.001,diagnostic,PASS
+translation,Energy unchanged after spatial shift,4.976029089844712e-07,< 0.003,primary,PASS
+translation,Charge unchanged after spatial shift,5.757616840724452e-07,< 0.003,primary,PASS
+boost,Numerical E²-P² invariant,4.0591103759446196e-05,< 0.005,primary,PASS
+boost,Numerical boost charge invariant,3.6622966961245002e-06,< 0.005,primary,PASS
+dynamics,Energy drift plus_1pct,3.2073815853387e-05,< 0.01,primary,PASS
+dynamics,Charge drift plus_1pct,1.8592840980665915e-05,< 0.01,primary,PASS
+dynamics,Radius bounded plus_1pct,1..1.0035,0.75<R/R0<1.35,primary,PASS
+dynamics,Core bounded plus_1pct,0.98817..1,0.35<A/A0<1.75,primary,PASS
+dynamics,Energy drift minus_1pct,3.1257202718948306e-05,< 0.01,primary,PASS
+dynamics,Charge drift minus_1pct,1.8468005169587455e-05,< 0.01,primary,PASS
+dynamics,Radius bounded minus_1pct,0.99672..1,0.75<R/R0<1.35,primary,PASS
+dynamics,Core bounded minus_1pct,1..1.012,0.35<A/A0<1.75,primary,PASS
+dynamics,Energy drift noise_1pct,0.00044887144951508135,< 0.01,primary,PASS
+dynamics,Charge drift noise_1pct,0.00029442200325209436,< 0.01,primary,PASS
+dynamics,Radius bounded noise_1pct,0.99987..1.0065,0.75<R/R0<1.35,primary,PASS
+dynamics,Core bounded noise_1pct,0.93956..1.07,0.35<A/A0<1.75,primary,PASS
+dynamics,Energy drift plus_5pct,0.0008549059636747952,< 0.01,primary,PASS
+dynamics,Charge drift plus_5pct,0.0004853238441346923,< 0.01,primary,PASS
+dynamics,Radius bounded plus_5pct,1..1.0289,0.75<R/R0<1.35,primary,PASS
+dynamics,Core bounded plus_5pct,0.94155..1,0.35<A/A0<1.75,primary,PASS
