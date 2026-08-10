@@ -1,6 +1,4 @@
-#!/bin/sh
-'''exec' "/home/ibrohim/Downloads/New Data/venv/bin/python3" "$0" "$@"
-' '''
+#!/home/ibrohim/Downloads/data_penelitian_kuliah/venv/bin/python3
 # -*- coding: utf-8 -*-
 import re
 import sys
