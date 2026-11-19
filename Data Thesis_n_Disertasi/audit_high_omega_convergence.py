@@ -14,12 +14,14 @@ from __future__ import annotations
 import argparse
 import csv
 import math
+import os
 import sys
 from pathlib import Path
 
 import numpy as np
 
 HERE = Path(__file__).resolve().parent
+os.chdir(HERE)  # Keep the imported solver's relative paths inside this folder.
 sys.path.insert(0, str(HERE))
 
 import polynomial_pq_hybrid_solver as solver  # noqa: E402
