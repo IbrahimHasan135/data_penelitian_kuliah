@@ -1,0 +1,17 @@
+criterion,value,required,status
+Ground state,0,node_count = 0,PASS
+Localized tail,1.4119021190639819e-11,tail_ratio < 1.0e-06,PASS
+Finite energy,200.8657623497724,finite and positive,PASS
+Finite charge,207.40389776833905,finite and positive,PASS
+Energetic stability,0.9684763136618124,E/Q < m = 1,PASS
+ODE residual,5.560190536324505e-06,max residual < 1.0e-04,PASS
+Virial identity,9.2109594742132e-09,relative error < 1.0e-03,PASS
+Von Laue condition,7.842878200718159e-10,relative error < 1.0e-03,PASS
+NPZ energy consistency,1.414960374427206e-16,relative error < 1.0e-06,PASS
+NPZ charge consistency,1.3703556074027978e-16,relative error < 1.0e-06,PASS
+RMAX Q convergence (low_omega),4.7409362940364086e-07,relative change < 1.0e-03,PASS
+RMAX E convergence (low_omega),4.3591121496118043e-07,relative change < 1.0e-03,PASS
+RMAX Q convergence (mid_omega),4.211480470940526e-07,relative change < 1.0e-03,PASS
+RMAX E convergence (mid_omega),4.342557280996227e-07,relative change < 1.0e-03,PASS
+RMAX Q convergence (high_omega),0.0013240305333643329,relative change < 1.0e-03,FAIL
+RMAX E convergence (high_omega),0.001331024985350874,relative change < 1.0e-03,FAIL
