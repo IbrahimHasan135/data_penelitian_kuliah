@@ -1,34 +1,29 @@
-# Audit Bab 6 — langkah pertama
+# Audit Bab 6–7 — urutan pemeriksaan
 
-Catatan kerja untuk mencocokkan hasil Bab 6 di Google Docs dengan skrip dan data yang tersimpan di repository. Ini checkpoint audit; tidak mengubah atau menghapus catatan hasil sebelumnya.
+Catatan kerja untuk mencocokkan klaim roadmap dengan skrip dan data di repository. Hasil sebelumnya tetap disimpan sebagai checkpoint; audit berikutnya menambahkan bukti baru tanpa menghapus hasil lama.
 
-## Status yang ditemukan
+## Pemeriksaan statik yang sudah dilakukan
 
-- Solver cabang polinomial: `polynomial_pq_hybrid_solver.py`.
-- Data profil dan hasil p4-q6 sudah tersedia di `polynomial_pq_hybrid_output/p4_q6/`, termasuk `branch_profiles.npz` dan `branch_results.csv`.
-- Ada skrip analisis statik yang membaca profil tersimpan tanpa menjalankan ulang BVP: `particle_identity_static_tests.py`.
-- Karena keluaran solver sudah tersedia, jangan mulai dengan menjalankan ulang solver penuh. Langkah pertama adalah mereproduksi pemeriksaan statik dari data tersimpan.
+Skrip `particle_identity_static_tests.py` membaca profil tersimpan dari model p4-q6, lalu menghitung ulang energi, muatan, residu ODE, node, rasio ekor, identitas virial, kondisi von Laue, dan konvergensi RMAX.
 
-## Jalankan satu skrip ini dulu
+Hasil yang dilaporkan: 14/16 gerbang lolos. Dua kegagalan adalah konvergensi Q dan E pada titik frekuensi tinggi. Titik tersebut berada dekat batas lokalisasi dan memiliki E/Q > m, sehingga jangan menyebut seluruh cabang sebagai solusi terikat yang lolos.
 
-Dari folder `Data Thesis_n_Disertasi`:
+## Langkah berikutnya: uji konvergensi frekuensi tinggi
+
+Jalankan skrip terarah berikut dari repository root:
 
 ```bash
-python3 particle_identity_static_tests.py --output-dir particle_identity_static_output_audit
+python3 "Data Thesis_n_Disertasi/audit_high_omega_convergence.py"
 ```
 
-Skrip memerlukan `numpy`, `scipy`, dan `matplotlib`. Opsi output terpisah menjaga hasil audit baru agar tidak menimpa keluaran lama.
+Skrip ini memulai dari profil p4-q6 yang tersimpan dan menguji ulang cabang frekuensi tinggi pada RMAX 70, 90, 110, dan 140. Ia menggunakan solver BVP yang sama, melanjutkan solusi dari satu domain ke domain yang lebih besar, mempertahankan resolusi radial kira-kira sama, dan menulis hasil ke:
 
-## Apa yang diperiksa
+`Data Thesis_n_Disertasi/rmax_high_omega_audit/high_omega_rmax_audit.csv`
 
-Skrip memilih solusi referensi p4-q6 lalu menghitung ulang energi dan muatan, residu ODE, jumlah node, rasio ekor, identitas virial, kondisi von Laue, konsistensi NPZ terhadap CSV, dan konvergensi terhadap RMAX. Ia juga membuat pemeriksaan prediksi boost Lorentz dari besaran statik.
+Keluaran tidak menimpa hasil sebelumnya. Skrip memerlukan `numpy`, `scipy`, dan `matplotlib`, sama seperti solver utama. Ia tidak menjalankan ulang pemindaian penuh semua model.
 
-## Target checkpoint
+## Target keputusan checkpoint
 
-Simpan keluaran baru, lalu bandingkan dengan hasil yang sudah ada. Catat setiap gerbang sebagai **cocok**, **berbeda**, atau **belum dapat dinilai**. Jangan menyimpulkan kestabilan dinamik penuh hanya dari analisis statik atau pemeriksaan boost prediktif.
+Bandingkan perubahan Q dan E antar-domain berturut-turut, pergeseran omega, tail ratio, node count, dan residu ODE. Catat apakah hasil terus mendekati konvergensi, gagal konvergen, atau solver gagal. Pemeriksaan ini hanya menilai konvergensi numerik untuk titik frekuensi tinggi; bukan uji kestabilan dinamik atau bukti transformasi Lorentz aktual.
 
-Jika skrip gagal karena file masukan tidak ditemukan, pastikan perintah dijalankan dari folder yang disebutkan. Jika gerbang gagal, jangan jalankan ulang solver dulu; periksa rumus/definisi dan data yang dipakai skrip.
-
-## Setelah langkah pertama
-
-Baru setelah hasil reproduksi statik cocok, audit solver sumbernya dan metode benchmark secara terpisah. Solver penuh `polynomial_pq_hybrid_solver.py` menjalankan pemindaian multi-model dan continuation, sehingga tidak diperlukan untuk pemeriksaan pertama.
+Setelah hasil CSV ini diperiksa, checkpoint berikutnya dapat dirancang: uji evolusi waktu pada solusi referensi p4-q6.
