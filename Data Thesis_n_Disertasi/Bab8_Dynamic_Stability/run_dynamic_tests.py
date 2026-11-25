@@ -103,8 +103,8 @@ def diagnostics(r, psi, pi, dr):
     rho = np.abs(pi)**2 + np.abs(dpsi)**2 + potential(psi)
     j0 = np.real(1j * (np.conj(psi) * pi - psi * np.conj(pi)))
     E = float(np.trapz(rho * weight, r))
-    Q = float(np.trapezoid(j0 * weight, r))
-    R = math.sqrt(max(0.0, float(np.trapezoid(r**2 * rho * weight, r)) / max(E, 1e-30)))
+    Q = float(np.trapz(j0 * weight, r))
+    R = math.sqrt(max(0.0, float(np.trapz(r**2 * rho * weight, r)) / max(E, 1e-30)))
     return E, Q, R, float(abs(psi[0]))
 
 
@@ -212,6 +212,10 @@ def main():
     for name, perturbation, dt_factor in cases:
         result = evolve(profile, name, perturbation, tmax, nr, dt_factor, args.output_dir)
         summary = {k: v for k, v in result.items() if k not in {"rows"}}
+        summary["pass_energy_drift"] = summary["max_energy_drift"] < DRIFT_LIMIT
+        summary["pass_charge_drift"] = summary["max_charge_drift"] < DRIFT_LIMIT
+        summary["pass_radius_bounded"] = summary["radius_min_factor"] > RADIUS_MIN and summary["radius_max_factor"] < RADIUS_MAX
+        summary["pass_core_bounded"] = summary["center_min_factor"] > CENTER_MIN and summary["center_max_factor"] < CENTER_MAX
         summaries.append(summary)
         next_run_rows[name] = result["rows"]
         print(json.dumps(summary))
@@ -237,7 +241,7 @@ def main():
             "center_amplitude_ratio": [CENTER_MIN, CENTER_MAX],
         }, "runs": summaries}, f, indent=2)
     print(f"\nCSV dan summary disimpan di: {args.output_dir}")
-    print("Catatan: PNG/field heatmap dan fluks radiasi belum ditambahkan; evaluasi refleksi batas sebelum klaim.")
+    print("Catatan: grafik diagnostik tersimpan; peta panas medan dan pengukuran fluks radiasi belum dibuat. Evaluasi refleksi batas sebelum klaim.")
     return 0
 
 
